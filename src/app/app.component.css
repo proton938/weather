@@ -23,7 +23,7 @@
 .basicTemplate {
     border-spacing: 0px 8px;
     display: table;
-    margin: 40px auto 40px auto;
+    margin: 40px auto 80px auto;
     display: block;
     width: 900px;
     display: block;
@@ -46,7 +46,6 @@
 .childBasicTemplate2 {
     display: table-cell;
     padding: 10px;
-    border-right: solid 1px #eee;
 }
 
 .childBasicTemplate2:nth-child(1) {
@@ -61,7 +60,13 @@
 .backgroundCell {
     background: rgba(255, 255, 255, 0.2);
     border-bottom: solid 1px #eee;
+    border-right: solid 1px #eee;
 }
+.backgroundLastCell {
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: solid 1px #eee;
+}
+
 .yellowText {
     color: yellow;
     padding: 0px 5px 0px 4px;
