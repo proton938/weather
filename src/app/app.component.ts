@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpService} from './http.service';
-import {User} from './user';
+import { ApiParams } from './models/ApiParams';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,8 @@ import {User} from './user';
 })
 
 export class AppComponent implements OnInit { 
-   
+
+	apiParams: ApiParams = new ApiParams();
  
     constructor(private httpService: HttpService){}
       
