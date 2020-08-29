@@ -1,21 +1,26 @@
 import { Component, OnInit} from '@angular/core';
-import { HttpService} from './http.service';
+import { HttpService} from './models/http.service';
 import { ApiParams } from './models/ApiParams';
+import { WeatherParams } from './models/interfaces';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  providers: [HttpService]
+  	selector: 'app-root',
+  	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css'],
+  	providers: [HttpService]
 })
 
-export class AppComponent implements OnInit { 
+export class AppComponent implements OnInit {
+
+	title = 'Сервис погоды';
 
 	apiParams: ApiParams = new ApiParams();
+	weatherArray: WeatherParams;
  
     constructor(private httpService: HttpService){}
       
     ngOnInit(){
-		
+		this.getWeather();
     }
 	
 	getWeather(): void {
@@ -23,7 +28,7 @@ export class AppComponent implements OnInit {
 		.subscribe(
 			result => {
 				console.log(result);
-				alert(JSON.stringify(result));
+				this.weatherArray = result;
 			}, error => {
 				console.log(error);
 				alert('Ресурс не обнаружен!');
@@ -31,3 +36,6 @@ export class AppComponent implements OnInit {
 		);
 	}
 }
+
+
+

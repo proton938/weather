@@ -1,3 +1,43 @@
-<input type="button" value="вывод" (click)="getWeather()" >
 
-{{apiParams.key}}
+
+
+    <div class="blockPage">
+        <div class="pageHeader">
+            {{title}}
+        </div>
+    </div>
+
+    <div class="basicTemplate">
+        <div *ngFor="let list of weatherArray.list" class="childBasicTemplate1">
+            <div class="childBasicTemplate2">
+                {{list.dt_txt}}
+            </div>
+            <div class="childBasicTemplate2 backgroundCell">
+                <span class="yellowText">t</span>
+                <span class="sizeStyle" >{{(list.main.temp - 273.15).toFixed(1)}}</span>
+                <span class="yellowText" >C <sup><small>0</small></sup></span>
+            </div>
+            <div class="childBasicTemplate2 backgroundCell">
+                <span class="yellowText">P</span>
+                <span class="sizeStyle" >{{list.main.pressure}}</span>
+                <span class="yellowText" >гПа</span>
+            </div>
+            <div class="childBasicTemplate2 backgroundCell">
+                <span class="yellowText" >&#9729;</span>
+                <span class="sizeStyle" >{{list.clouds.all}}</span>
+                <span class="yellowText" >%</span>
+            </div>
+            <div class="childBasicTemplate2 backgroundCell">
+                <span class="yellowText" >&#10144;</span>
+                <span class="sizeStyle" >{{list.wind.speed}}</span>
+                <span class="yellowText" >м/с</span>
+            </div>
+            <div class="childBasicTemplate2 backgroundCell">
+                <span class="yellowText" >&#8635;</span>
+                <span class="sizeStyle" >{{list.wind.deg}}</span>
+                <span class="yellowText" ><sup><small>0</small></sup></span>
+            </div>
+        </div>
+    </div>
+
+
