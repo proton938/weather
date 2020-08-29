@@ -7,12 +7,16 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagerComponent } from './pager/pager.component';
+import { PredictionComponent } from './prediction/prediction.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PagerComponent,
+    PredictionComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,4 +27,5 @@ import { PagerComponent } from './pager/pager.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

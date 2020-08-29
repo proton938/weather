@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import {PagerComponent} from './pager/pager.component';
+
 import { AppComponent } from './app.component';
+import {PagerComponent} from './pager/pager.component';
+import { PredictionComponent } from './prediction/prediction.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  {path: '', component: AppComponent },
+  {path: '', component: HomeComponent },
   {path: 'page', component: PagerComponent},
-  {path: 'page/:id', component: PagerComponent}
+  {path: 'page/:id', component: PagerComponent},
+  {path: 'prediction', component: PredictionComponent},
+  {path: 'prediction/:id', component: PredictionComponent},
 ];
 
 @NgModule({

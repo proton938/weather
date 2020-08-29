@@ -1,0 +1,37 @@
+
+
+<div class="basicTemplate">
+    <div *ngFor="let list of weatherArray.list; let i=index;" class="childBasicTemplate1" >
+        <div class="childBasicTemplate2" (click)="goToPage(i)" >
+            {{list.dt_txt}}
+        </div>
+        <div class="childBasicTemplate2 backgroundCell" (click)="goToPage(i)" >
+            <span class="yellowText">t</span>
+            <span class="sizeStyle" >{{(list.main.temp - 273.15).toFixed(1)}}</span>
+            <span class="yellowText" >C <sup><small>0</small></sup></span>
+        </div>
+        <div class="childBasicTemplate2 backgroundCell" (click)="goToPage(i)" >
+            <span class="yellowText">P</span>
+            <span class="sizeStyle" >{{list.main.pressure}}</span>
+            <span class="yellowText" >гПа</span>
+        </div>
+        <div class="childBasicTemplate2 backgroundCell" (click)="goToPage(i)" >
+            <span class="yellowText" >&#9729;</span>
+            <span class="sizeStyle" >{{list.clouds.all}}</span>
+            <span class="yellowText" >%</span>
+        </div>
+        <div class="childBasicTemplate2 backgroundCell" (click)="goToPage(i)" >
+            <span class="yellowText" >&#10144;</span>
+            <span class="sizeStyle" >{{list.wind.speed}}</span>
+            <span class="yellowText" >м/с</span>
+        </div>
+        <div class="childBasicTemplate2 backgroundLastCell" (click)="goToPage(i)" >
+            <span class="yellowText" >&#8635;</span>
+            <span class="sizeStyle" >{{list.wind.deg}}</span>
+            <span class="yellowText" ><sup><small>0</small></sup></span>
+        </div>
+    </div>
+</div>
+
+
+
