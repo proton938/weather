@@ -17,5 +17,6 @@ export class HttpService{
     getData() {
         return this.http.get<WeatherParams>('http://api.openweathermap.org/data/2.5/forecast?id=1508291&appid=' + this.apiParams.key );
     }
+
 }
 

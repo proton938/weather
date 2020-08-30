@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpService} from '../models/http.service';
-import { ApiParams } from '../models/ApiParams';
+import { PageParams } from '../models/PageParams';
 import { WeatherParams } from '../models/interfaces';
 
 @Component({
@@ -12,10 +12,12 @@ import { WeatherParams } from '../models/interfaces';
 })
 export class PredictionComponent implements OnInit {
 
-  apiParams: ApiParams = new ApiParams();
   weatherArray: WeatherParams;
+  pageParams: PageParams;
 
-  constructor(private httpService: HttpService, private router: Router) { }
+  constructor(private httpService: HttpService, private router: Router, page: PageParams) {
+      this.pageParams = page;
+  }
 
   ngOnInit() {
     this.getWeather();
@@ -34,8 +36,10 @@ export class PredictionComponent implements OnInit {
         );
   }
 
+
   goToPage(dt) {
-    this.router.navigate(['page', dt]);
+      this.pageParams.pageNumber = dt;
+      this.router.navigate(['page', dt]);
   }
 
 }

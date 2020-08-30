@@ -10,6 +10,7 @@ import { PagerComponent } from './pager/pager.component';
 import { PredictionComponent } from './prediction/prediction.component';
 import { HomeComponent } from './home/home.component';
 
+import { PageParams } from './models/PageParams';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { HomeComponent } from './home/home.component';
 	HttpClientModule,
 	FormsModule
   ],
-  providers: [],
+  providers: [ PageParams ],
   bootstrap: [AppComponent]
 })
 

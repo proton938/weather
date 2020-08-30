@@ -1,1 +1,70 @@
-<p>pager works!</p>
+
+
+<div class="bodyTamplate">
+
+    <div class="bodyHeader">
+        <span style="left: 10px;" class="arrow">&lArr;</span>
+        <span style="display: block; text-align: center">
+            {{list.dt_txt}}
+        </span>
+        <span style="right: 10px;" class="arrow">&rArr;</span>
+    </div>
+
+    <div class="infoBlock">
+        <div class="info">
+            <span class="yellowText">Температура воздуха:</span>
+            <span class="sizeStyle">{{(list.main.temp - 273.15).toFixed(1)}}</span>
+            <span class="yellowText" >C <sup><small>0</small></sup></span>
+        </div>
+
+        <div class="info">
+            <span class="yellowText">По ощущениям:</span>
+            <span class="sizeStyle">{{(list.main.feels_like - 273.15).toFixed(1)}}</span>
+            <span class="yellowText" >C <sup><small>0</small></sup></span>
+        </div>
+
+        <div class="info">
+            <span class="yellowText">В тени:</span>
+            <span class="sizeStyle">{{(list.main.temp_min - 273.15).toFixed(1)}}</span>
+            <span class="yellowText" >C <sup><small>0</small></sup></span>
+        </div>
+
+        <div class="info">
+            <span class="yellowText">На солнце:</span>
+            <span class="sizeStyle">{{(list.main.temp_max - 273.15).toFixed(1)}}</span>
+            <span class="yellowText" >C <sup><small>0</small></sup></span>
+        </div>
+
+        <div class="info">
+            <span class="yellowText">Давление:</span>
+            <span class="sizeStyle">{{list.main.pressure}}</span>
+            <span class="yellowText" >гПа</span>
+        </div>
+
+        <div class="info">
+            <span class="yellowText">Влажность:</span>
+            <span class="sizeStyle">{{list.main.humidity}}</span>
+            <span class="yellowText" >%</span>
+        </div>
+
+        <div class="info">
+            <span class="yellowText">Облачность:</span>
+            <span class="sizeStyle">{{list.clouds.all}}</span>
+            <span class="yellowText" >%</span>
+        </div>
+
+        <div class="info">
+            <span class="yellowText">Скорость ветра:</span>
+            <span class="sizeStyle">{{list.wind.speed}}</span>
+            <span class="yellowText" >м/с</span>
+        </div>
+
+        <div class="info">
+            <span class="yellowText">Направление ветра:</span>
+            <span class="sizeStyle">{{list.wind.deg}}</span>
+            <span class="yellowText" ><sup><small>0</small></sup></span>
+        </div>
+    </div>
+
+</div>
+

@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpService} from './models/http.service';
 import { ApiParams } from './models/ApiParams';
+
 import { WeatherParams } from './models/interfaces';
 
 @Component({
@@ -18,7 +19,8 @@ export class AppComponent implements OnInit {
 	apiParams: ApiParams = new ApiParams();
 	weatherArray: WeatherParams;
 
-	constructor(private httpService: HttpService, private router: Router) { }
+	constructor(private httpService: HttpService, private router: Router) {
+	}
 
 	ngOnInit(){
 	}
