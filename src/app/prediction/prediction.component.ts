@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router} from '@angular/router';
 import { HttpService} from '../models/http.service';
 import { PageParams } from '../models/PageParams';
 import { WeatherParams } from '../models/interfaces';
+import {ApiParams} from '../models/ApiParams';
 
 @Component({
   selector: 'app-prediction',
@@ -14,13 +15,19 @@ export class PredictionComponent implements OnInit {
 
   weatherArray: WeatherParams;
   pageParams: PageParams;
+  apiParams: ApiParams;
 
-  constructor(private httpService: HttpService, private router: Router, page: PageParams) {
+  constructor(private httpService: HttpService, private router: Router, page: PageParams, api: ApiParams) {
       this.pageParams = page;
+      this.apiParams = api;
   }
 
   ngOnInit() {
-    this.getWeather();
+      if (this.apiParams.key != '') {
+          this.getWeather();
+      } else {
+          this.router.navigate(['']);
+      }
   }
 
   getWeather(): void {
@@ -32,6 +39,7 @@ export class PredictionComponent implements OnInit {
             }, error => {
               console.log(error);
               alert('Ресурс не обнаружен!');
+              this.router.navigate(['']);
             }
         );
   }

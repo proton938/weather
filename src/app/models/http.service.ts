@@ -6,9 +6,11 @@ import { WeatherParams, CurrentWeatherParams } from './interfaces';
 @Injectable()
 export class HttpService{
 
-    apiParams: ApiParams = new ApiParams();
+    apiParams: ApiParams;
 
-    constructor(private http: HttpClient){ }
+    constructor(private http: HttpClient, api: ApiParams){
+        this.apiParams = api;
+    }
 
     getTodayData() {
         return this.http.get<CurrentWeatherParams>('http://api.openweathermap.org/data/2.5/weather?id=1508291&appid=' + this.apiParams.key );

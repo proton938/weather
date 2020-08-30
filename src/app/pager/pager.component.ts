@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 import { PageParams } from '../models/PageParams';
 import {HttpService} from '../models/http.service';
 import {WeatherParams} from '../models/interfaces';
+import {ApiParams} from '../models/ApiParams';
 
 @Component({
   selector: 'app-pager',
@@ -13,18 +15,24 @@ export class PagerComponent implements OnInit {
 
     arrowDisp1: boolean = false;
     arrowDisp2: boolean = false;
+    apiParams: ApiParams;
 
   pageParams: PageParams;
   weatherArray: WeatherParams;
   list: WeatherParams[];
 
-  constructor(private httpService: HttpService, page: PageParams ) {
+  constructor(private httpService: HttpService, private router: Router, page: PageParams, api: ApiParams) {
     this.pageParams = page;
+    this.apiParams = api;
   }
 
-  ngOnInit() {
-    this.getWeather();
-  }
+    ngOnInit() {
+        if (this.apiParams.key != '') {
+            this.getWeather();
+        } else {
+            this.router.navigate(['']);
+        }
+    }
 
   getWeather(): void {
     this.httpService.getData()
@@ -44,6 +52,7 @@ export class PagerComponent implements OnInit {
             }, error => {
               console.log(error);
               alert('Ресурс не обнаружен!');
+              this.router.navigate(['']);
             }
         );
   }

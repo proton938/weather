@@ -5,6 +5,7 @@ import { ApiParams } from './models/ApiParams';
 
 import { WeatherParams } from './models/interfaces';
 
+
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -16,10 +17,11 @@ export class AppComponent implements OnInit {
 
 	title = 'Сервис погоды';
 
-	apiParams: ApiParams = new ApiParams();
+	apiParams: ApiParams;
 	weatherArray: WeatherParams;
 
-	constructor(private httpService: HttpService, private router: Router) {
+	constructor(private httpService: HttpService, private router: Router, api: ApiParams) {
+		this.apiParams = api;
 	}
 
 	ngOnInit(){

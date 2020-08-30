@@ -12,13 +12,19 @@ import { HttpService} from '../models/http.service';
 })
 export class HomeComponent implements OnInit {
 
-  apiParams: ApiParams = new ApiParams();
-  weatherArray: CurrentWeatherParams;
+    apiParams: ApiParams;
+    weatherArray: CurrentWeatherParams;
+    rKeyDisp: boolean = false;
 
-  constructor(private httpService: HttpService, private router: Router) { }
+  constructor(private httpService: HttpService, private router: Router, api: ApiParams) {
+      this.apiParams = api;
+  }
 
   ngOnInit() {
-    this.getCurrentWeather();
+      if (this.apiParams.key != '') {
+          this.getCurrentWeather();
+          this.rKeyDisp = true;
+      }
   }
 
   getCurrentWeather(): void {
@@ -27,11 +33,20 @@ export class HomeComponent implements OnInit {
             result => {
               console.log(result);
               this.weatherArray = result;
+                this.rKeyDisp = true;
             }, error => {
               console.log(error);
-              alert('Ресурс не обнаружен!');
+                this.rKeyDisp = false;
             }
         );
   }
+
+    readKey() {
+        var rKey = (<HTMLInputElement>document.getElementById('inputKey')).value;
+        if (rKey != '') {
+            this.apiParams.key = rKey;
+            this.getCurrentWeather();
+        }
+    }
 
 }

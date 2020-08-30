@@ -11,6 +11,7 @@ import { PredictionComponent } from './prediction/prediction.component';
 import { HomeComponent } from './home/home.component';
 
 import { PageParams } from './models/PageParams';
+import { ApiParams } from './models/ApiParams';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { PageParams } from './models/PageParams';
 	HttpClientModule,
 	FormsModule
   ],
-  providers: [ PageParams ],
+  providers: [ PageParams, ApiParams ],
   bootstrap: [AppComponent]
 })
 
