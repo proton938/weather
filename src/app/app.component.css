@@ -27,6 +27,7 @@ li a {
 }
 
 .menuDecor {
+    border-top: solid 1px #fff;
     position: absolute;
     top: 26px;
     width: 100%;

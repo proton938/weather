@@ -27,7 +27,6 @@
     display: block;
     width: 900px;
     display: block;
-    border-right: solid 1px #eee;
     background: rgba(0, 0, 255, 0.1);
 }
 
@@ -47,7 +46,7 @@
 
 .childBasicTemplate2 {
     display: table-cell;
-    padding: 10px 18px 10px 18px;
+    padding: 10px 19px 10px 22.5px;
 }
 
 .childBasicTemplate2:nth-child(1) {
