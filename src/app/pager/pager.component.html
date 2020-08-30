@@ -3,11 +3,11 @@
 <div class="bodyTamplate">
 
     <div class="bodyHeader">
-        <span style="left: 10px;" class="arrow">&lArr;</span>
+        <span style="left: 10px;" class="arrow" [ngClass]="{ arrowDisp: !arrowDisp1 }" (click)="backPage()" >&lArr;</span>
         <span style="display: block; text-align: center">
             {{list.dt_txt}}
         </span>
-        <span style="right: 10px;" class="arrow">&rArr;</span>
+        <span style="right: 10px;" class="arrow" [ngClass]="{ arrowDisp: !arrowDisp2 }" (click)="nextPage()" >&rArr;</span>
     </div>
 
     <div class="infoBlock">
@@ -67,4 +67,5 @@
     </div>
 
 </div>
+
 

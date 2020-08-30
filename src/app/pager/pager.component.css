@@ -52,4 +52,10 @@
     top: 0px;
     cursor: pointer;
 }
+.arrow:hover {
+    color: #ddd;
+}
+.arrowDisp {
+    display: none;
+}
 
