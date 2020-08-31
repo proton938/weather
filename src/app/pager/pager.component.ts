@@ -59,11 +59,13 @@ export class PagerComponent implements OnInit {
 
   nextPage() {
       this.pageParams.pageNumber++;
+      this.router.navigate(['page', this.pageParams.pageNumber]);
       this.getWeather();
   }
 
     backPage() {
         this.pageParams.pageNumber--;
+        this.router.navigate(['page', this.pageParams.pageNumber]);
         this.getWeather();
     }
 
